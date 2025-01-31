@@ -9,21 +9,22 @@ import "fmt"
 // At Google, we inject additional group naming functions into this list.
 // Example: google_aip_groups.go
 // package lint
-//
-//	func init() {
-//	  aipGroups = append(aipGroups, aipInternalGroup)
-//	}
-//
-//	func aipInternalGroup(aip int) string {
-//	  if aip > 9000 {
-//		   return "internal"
-//	  }
-//	  return ""
-//	}
+// func init() {
+// 	aipGroups = append(aipGroups, aipInternalGroup)
+// }
+
+func aipHcpGroup(aip int) string {
+	if aip > 9000 {
+		return "hcp"
+	}
+	return ""
+}
+
 var aipGroups = []func(int) string{
 	aipCoreGroup,
 	aipClientLibrariesGroup,
 	aipCloudGroup,
+	aipHcpGroup,
 }
 
 func aipCoreGroup(aip int) string {
