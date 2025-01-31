@@ -1,0 +1,5 @@
+# api_linter.yaml
+- disabled_rules:
+    - 'all'
+- enabled_rules:
+    - 'hcp::9001::no-additional-bindings'
